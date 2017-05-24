@@ -1,12 +1,12 @@
 body {
-  height: 100vh;
+  max-height: 100vh;
   padding: 0px;
   margin: 0px;
 }
 
 .wrapper {
   margin-top:10vh;
-  height: 90vh;
+  max-height: 90vh;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -30,9 +30,10 @@ body {
   width: 100%;
   justify-content: center;
   align-items: center;
+  margin-top: 10vh;
 }
 
-#start, #reset{
+#start{
   border: none;
   background: rgba(0,0,0,0.5);
   height: 5vh;
@@ -43,9 +44,21 @@ body {
   cursor: pointer;
 }
 
+#reset{
+  border: none;
+  background: rgba(0,0,0,0.5);
+  height: 5vh;
+  width: 10vh;
+  border-radius: 5px;
+  margin: 0 0 0 10px;
+  color: aliceblue;
+  cursor: pointer;
+}
+
 /*-------- sliders ---------*/
 
 .sliders {
+  margin-top: 10vh;
   width: 100%;
   display:flex;
   justify-content: space-around;
@@ -62,6 +75,14 @@ body {
 
 .rs-range-color  {
 
+}
+
+span.rs-tooltip.rs-tooltip-text.edit {
+  font-size: 13px;
+  width: 35px;
+  display: flex;
+  justify-content: center;
+  left: 80px;
 }
 
 
