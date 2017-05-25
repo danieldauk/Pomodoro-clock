@@ -15,7 +15,7 @@ $(function() {
   
   //initializing progress Circle
     var progressCircle = new ProgressBar.Circle('#clock', {
-      strokeWidth: 5,
+      strokeWidth: 7,
       fill: "rgba(0,0,0,0.1)",
       from: { color: '#FFBC67' },
       to: { color: '#DA727E' },
