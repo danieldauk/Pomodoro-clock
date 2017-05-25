@@ -1,6 +1,13 @@
 var breakValue = 5;
 var workValue = 20;
-
+var workInterval = 0;
+var breakInterval = 0;
+var breakValueTemp = 0;
+var workValueTemp = 0;
+var workTimeMins = 0;
+var breakTimeMins = 0;
+var workTimeSecs = 0;
+var breakTimeSecs = 0;
 $(function() {
   
   
@@ -48,49 +55,74 @@ $(function() {
 
   function setWork() {
     workValue = $("#work").roundSlider("getValue");
-    console.log(workValue);
     $(".progressbar-text").text(String(workValue));
   }
   
+  
+  
+  //start button
+   $("#start").on("click", function() {
+   startWorkInterval();
+ });
+  
+  
   //work counter 
   function startWorkInterval () {
-    var workInterval = setInterval(function() {
-     if(workValue == 0) {
-       startBreakInterval();
+    
+    //resetting the break time and converting mins to secs
+    workValueTemp = workValue*60;
+    //calling funtion to start counting right away
+    startWork(); 
+    workInterval = setInterval(function() {
+     if(workValueTemp == 0) {
        clearInterval(workInterval);
-       
+       startBreakInterval();
      }
-     startWork(workValue);
+     startWork();
    }, 1000);
+  }
+  
+  //converting mins to mins and secs
+
+  
+  function startWork() {
+    //converting secs to mins and secs
+    workTimeMins = Math.floor(workValueTemp/60);
+    workTimeSecs = (workValueTemp - workTimeMins*60);
+    
+    //changing progress circle text and decreasing seconds
+    if(workTimeSecs<10) {
+      workTimeSecs = "0" + String(workTimeSecs);
+    }
+    $(".progressbar-text").text(workTimeMins + ":" + workTimeSecs);
+    workValueTemp--;
     
   }
   
-  function startWork(valueTime) {
-    workValue--;
-    $(".progressbar-text").text(valueTime);
-  }
-  
- $("#start").on("click", function() {
-   startWorkInterval();
- });
   
   //break counter (cant clear break interval ??)
   
   function startBreakInterval () {
-    var breakInterval = setInterval(function() {
-     if(breakValue == 0) {
-       console.log("im here");
-       startWorkInterval();
+    
+    //resetting the break time and converting mins to secs
+    breakValueTemp = breakValue;
+    //calling funtion to start counting right away
+    startBreak() 
+    breakInterval = setInterval(function() {
+     if(breakValueTemp == 0) {
        clearInterval(breakInterval);
-       
+       startWorkInterval();
      }
-     startBreak(breakValue);
+     startBreak();
    }, 1000);
   }
     
-  function startBreak(valueTime) {
-    breakValue--;
-    $(".progressbar-text").text(valueTime);
+  function startBreak() {
+    
+    //changing text and decreasing seconds
+    $(".progressbar-text").text(breakValueTemp);
+    breakValueTemp--;
+    
   }  
   
     
