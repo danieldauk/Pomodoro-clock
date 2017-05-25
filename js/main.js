@@ -7,6 +7,7 @@ var workValueTemp = 0;
 var timeMins = 0;
 var timeSecs = 0;
 var timeForProgCircle = 0;
+var startReset = 0;
 
 
 $(function() {
@@ -63,13 +64,35 @@ $(function() {
   
   //start button
    $("#start").on("click", function() {
-     //setting progress bar back to 0 and starting counter
+
+     if(startReset == 0) {
+       startReset = 1;
+       
+       //changing icon to reset
+       $("#start").html("<i class='fa fa-undo' aria-hidden='true'></i> Reset");
+
+       //setting progress bar back to 0 and starting counter
+       progressCircle.animate(0, {
+        duration: 500
+       }, function() {
+        startWorkInterval ();
+       });
+     } else {
+       //if start was already pressed
+       startReset = 0;
+       
+       //changing icon to reset
+       $("#start").html("<i class='fa fa-play' aria-hidden='true'></i> Play");
+       
+       clearInterval(workInterval);
+       clearInterval(breakInterval);
+       progressCircle.animate(0, {
+        duration: 500
+       });
+        $(".progressbar-text").text(String(workValue)+":00");
+     }
      
-     progressCircle.animate(0, {
-      duration: 1000
-     }, function() {
-      startWorkInterval ();
-     });
+     
  });
   
   
@@ -96,7 +119,7 @@ $(function() {
        //setting progress circle to 0 and starting break counter
        
        progressCircle.animate(0, {
-        duration: 1000
+        duration: 500
        }, function() {
           startBreakInterval();
        });
@@ -145,7 +168,7 @@ $(function() {
        //setting progress circle to 0 and starting break counter
        
        progressCircle.animate(0, {
-        duration: 1000
+        duration: 500
        }, function() {
           startWorkInterval();
        });
@@ -163,5 +186,15 @@ $(function() {
     
   }  
   
-    
+  
+  
+  /*---------------style -----------------*/
+  $("#start").on("mousedown",function() {
+    $("#start").addClass("pressed");
+  });
+  $("#start").on("mouseup mouseleave",function() {
+    $("#start").removeClass("pressed");
+  });
+  
+  
 });

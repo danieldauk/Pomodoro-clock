@@ -33,28 +33,27 @@ body {
   margin-top: 10vh;
 }
 
-#start{
+button {
   border: none;
   background: rgba(0,0,0,0.5);
   height: 5vh;
   width: 10vh;
   border-radius: 5px;
-  margin: 0 10px 0 0;
   color: aliceblue;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#reset{
-  border: none;
-  background: rgba(0,0,0,0.5);
-  height: 5vh;
-  width: 10vh;
-  border-radius: 5px;
-  margin: 0 0 0 10px;
-  color: aliceblue;
-  cursor: pointer;
+button i {
+  margin-right: 5px;
 }
 
+.pressed {
+  transform: scale(0.9);
+  transition: 0.2s;
+}
 /*-------- sliders ---------*/
 
 .sliders {
