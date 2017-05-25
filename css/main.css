@@ -1,7 +1,23 @@
+/* colors
+violet rgba(104,92,121, 1);
+yellow rgba(255,188,103,1);
+red rgba(218,114,126,1);
+pink rgba(172,108,130,1);
+blue rgba(69,92,123,1);
+
+
+*/
+
+* {
+  outline: none;
+}
+
 body {
   max-height: 100vh;
   padding: 0px;
   margin: 0px;
+  background-color: rgba(104,92,121, 1);
+  font-family: "Lato", sans-serif, monospace;
 }
 
 .wrapper {
@@ -19,8 +35,9 @@ body {
   width: 40vh;
 }
 
-.progressbar-text{
-  
+.progressbar-text {
+  color: rgba(255,188,103,1) !important;
+  font-size: 5vh;
 }
 
 /*-------- buttons ---------*/
@@ -35,15 +52,20 @@ body {
 
 button {
   border: none;
-  background: rgba(0,0,0,0.5);
-  height: 5vh;
-  width: 10vh;
+  background: rgba(69,92,123,1);
+  height: 7vh;
+  width: 12vh;
   border-radius: 5px;
   color: aliceblue;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 2.5vh;
+}
+
+button:hover {
+  opacity: 0.8;
 }
 
 button i {
@@ -73,7 +95,7 @@ button i {
 }
 
 .rs-range-color  {
-
+ background-color: rgba(218,114,126,1);
 }
 
 span.rs-tooltip.rs-tooltip-text.edit {
@@ -84,8 +106,36 @@ span.rs-tooltip.rs-tooltip-text.edit {
   left: 80px;
 }
 
+.rs-path-color {
+  background-color: rgba(255,188,103,0.8);
+}
 
+.rs-bg-color{
+  background-color: rgba(255,188,103,1);
+}
+
+.rs-border{
+  border: none;
+}
+
+.rs-border.rs-outer{
+  border: 3px solid rgba(218,114,126,1);
+}
+
+.rs-border.rs-inner {
+  border: 3px solid rgba(218,114,126,1);
+}
 /*--------slider styles ---------*/
 .rs-first .rs-handle {
+  background-color: rgba(69,92,123,1);
+}
 
+span.rs-tooltip.rs-tooltip-text.edit {
+  color: rgba(69,92,123,1);
+  font-weight: 600;
+  font-size: 2.7vh;
+}
+
+span.rs-tooltip.rs-tooltip-text.hover{
+  background-color: rgba(172,108,130,0.3);
 }

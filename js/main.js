@@ -17,6 +17,11 @@ $(function() {
     var progressCircle = new ProgressBar.Circle('#clock', {
       strokeWidth: 5,
       fill: "rgba(0,0,0,0.1)",
+      from: { color: '#FFBC67' },
+      to: { color: '#DA727E' },
+      step: function(state, progressCircle, attachment) {
+        progressCircle.path.setAttribute('stroke', state.color);
+    },
       text: {
         value: "20:00"
       }
@@ -98,7 +103,7 @@ $(function() {
   
   //work counter 
   function startWorkInterval () {
-    
+   
     //resetting the work time and converting mins to secs
     workValueTemp = workValue*60;
     
@@ -191,10 +196,27 @@ $(function() {
   /*---------------style -----------------*/
   $("#start").on("mousedown",function() {
     $("#start").addClass("pressed");
+    $("#start").html();
   });
   $("#start").on("mouseup mouseleave",function() {
     $("#start").removeClass("pressed");
   });
   
+  //changing slider radius if viewport is less than 400px
+  if($(window).innerWidth() < 400) {
+       $("#break").roundSlider("option", { "radius": 60 });
+       $("#work").roundSlider("option", { "radius": 60 });
+   };
+  
+ $(window).resize(function() {
+    if($(window).innerWidth() < 400) {
+       $("#break").roundSlider("option", { "radius": 60 });
+       $("#work").roundSlider("option", { "radius": 60 });
+    } else {
+       $("#break").roundSlider("option", { "radius": 80 });
+       $("#work").roundSlider("option", { "radius": 80 });
+    } 
+}); 
+
   
 });
