@@ -6,6 +6,9 @@ var breakValueTemp = 0;
 var workValueTemp = 0;
 var timeMins = 0;
 var timeSecs = 0;
+var timeForProgCircle = 0;
+
+
 $(function() {
   
   
@@ -53,28 +56,51 @@ $(function() {
 
   function setWork() {
     workValue = $("#work").roundSlider("getValue");
-    $(".progressbar-text").text(String(workValue));
+    $(".progressbar-text").text(String(workValue)+":00");
   }
   
   
   
   //start button
    $("#start").on("click", function() {
-   startWorkInterval();
+     //setting progress bar back to 0 and starting counter
+     
+     progressCircle.animate(0, {
+      duration: 1000
+     }, function() {
+      startWorkInterval ();
+     });
  });
   
   
   //work counter 
   function startWorkInterval () {
     
-    //resetting the break time and converting mins to secs
+    //resetting the work time and converting mins to secs
     workValueTemp = workValue*60;
+    
+    //starting progressCircle animation
+    timeForProgCircle = workValueTemp*200;
+    
+    progressCircle.animate(1, {
+      duration: timeForProgCircle
+  });
+
+    
     //calling funtion to start counting right away
     startWork(workValueTemp); 
     workInterval = setInterval(function() {
      if(workValueTemp == 0) {
        clearInterval(workInterval);
-       startBreakInterval();
+       
+       //setting progress circle to 0 and starting break counter
+       
+       progressCircle.animate(0, {
+        duration: 1000
+       }, function() {
+          startBreakInterval();
+       });
+      
      }
      startWork(workValueTemp);
    }, 200);
@@ -99,24 +125,31 @@ $(function() {
     
   }
   
-  
-  //break counter (cant clear break interval ??)
+
   
   function startBreakInterval () {
     
     //resetting the break time 
     breakValueTemp = breakValue*60;
     //starting progressCircle animation
-    var timeForProgCircle = breakValueTemp*1000;
+    var timeForProgCircle = breakValueTemp*200;
     progressCircle.animate(1, {
-      duration: 3000
+      duration: timeForProgCircle
     });
+    
     //calling funtion to start counting right away
-    startBreak(breakValueTemp) 
+    startBreak(breakValueTemp) ;
     breakInterval = setInterval(function() {
      if(breakValueTemp == 0) {
        clearInterval(breakInterval);
-       startWorkInterval();
+       //setting progress circle to 0 and starting break counter
+       
+       progressCircle.animate(0, {
+        duration: 1000
+       }, function() {
+          startWorkInterval();
+       });
+       
      }
      startBreak(breakValueTemp);
    }, 200);
