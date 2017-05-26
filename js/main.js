@@ -8,6 +8,7 @@ var timeMins = 0;
 var timeSecs = 0;
 var timeForProgCircle = 0;
 var startReset = 0;
+var alarmOnOff = 0;
 
 
 $(function() {
@@ -129,6 +130,12 @@ $(function() {
           startBreakInterval();
        });
       
+      //playing audio
+       if(alarmOnOff == 0) {
+         alarm.play();
+       }
+       
+
      }
      startWork(workValueTemp);
    }, 200);
@@ -178,6 +185,11 @@ $(function() {
           startWorkInterval();
        });
        
+       //playing audio
+       if(alarmOnOff == 0) {
+         alarm.play();
+       }
+       
      }
      startBreak(breakValueTemp);
    }, 200);
@@ -217,6 +229,19 @@ $(function() {
        $("#work").roundSlider("option", { "radius": 80 });
     } 
 }); 
-
+  
+  
+// creating audio and switching alarm
+  var alarm = new Audio('audio/bell2.mp3');
+  $(".alarm").on("click", function() {
+    $("#alarmBtn1").toggleClass("rotate1");
+    $("#alarmBtn2").toggleClass("rotate2");
+    
+  if(alarmOnOff == 0) {
+    alarmOnOff = 1;
+  } else {
+    alarmOnOff = 0;
+  }
+  });
   
 });

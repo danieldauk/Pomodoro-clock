@@ -167,6 +167,46 @@ span.rs-tooltip.rs-tooltip-text.hover{
   width: 100px;
 }
 
+/*--------alarm ---------*/
+.alarm {
+  display: flex;
+  justify-content: center;
+  color: rgba(255,188,103,1);
+  cursor: pointer;
+  align-items: center;
+    font-size: 4vh;
+}
+
+
+/* animation for alarm */
+#alarmBtn1 {
+  animation: twirl 0.3s linear forwards reverse;
+}
+
+#alarmBtn2 {
+  animation: twirl 0.3s linear forwards;
+  position: absolute;
+  color: rgba(218,114,126,1);
+}
+
+.rotate1 {
+  animation: twirl2 0.3s linear forwards !important;
+}
+
+.rotate2 {
+    animation: twirl2 0.3s linear forwards reverse !important;
+}
+
+@keyframes twirl {
+  0% { transform: rotateY(0deg); opacity: 1}
+  100% {transform: rotateY(270deg); opacity: 0.3}
+}
+
+@keyframes twirl2 {
+  0% { transform: rotateY(0deg); opacity: 1}
+  100% {transform: rotateY(270deg); opacity: 0.3}
+}
+
 /*--------medie queries ---------*/
 @media (max-width: 480px) {
   #clock {
