@@ -30,10 +30,25 @@ body {
   justify-content: center;
   flex-wrap: wrap;
 }
+/*-------- Title ---------*/
+
+.pomodoro {
+  display: flex;
+  height: 0vh;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.pomodoro h3 {
+  padding-right: 2.5vw;
+  font-family: "Lobster", sans-serif, monospace;
+  color:
+rgba(172,108,130,1);
+}
 
 /*-------- clock ---------*/
 #clock {
-  margin-top: 5vh;
+
   height: 40vh;
   width: 40vh;
 }
@@ -107,13 +122,6 @@ width: 100%;
  background-color: rgba(218,114,126,1);
 }
 
-span.rs-tooltip.rs-tooltip-text.edit {
-  font-size: 13px;
-  width: 35px;
-  display: flex;
-  justify-content: center;
-  left: 80px;
-}
 
 .rs-path-color {
   background-color: rgba(255,188,103,0.8);
@@ -135,15 +143,17 @@ span.rs-tooltip.rs-tooltip-text.edit {
   border: 3px solid rgba(218,114,126,1);
 }
 
-.rs-overlay1 {
-  overflow: 
-}
-/*--------slider styles ---------*/
+/*--------slider and tooltip styles ---------*/
 .rs-first .rs-handle {
   background-color: rgba(69,92,123,1);
 }
 
 span.rs-tooltip.rs-tooltip-text.edit {
+  font-size: 13px;
+  width: 35px;
+  display: flex;
+  justify-content: center;
+  left: 80px;
   color: rgba(69,92,123,1);
   font-weight: 600;
   font-size: 2.7vh;
@@ -208,10 +218,40 @@ span.rs-tooltip.rs-tooltip-text.hover{
 }
 
 /*--------medie queries ---------*/
-@media (max-width: 480px) {
+@media (min-width: 1000px) {
+  .sliders {
+      padding: 0 20vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .pomodoro h3 {
+    font-size: 3.5vw;
+  }
+  }
+
+
+@media (max-width: 400px) {
   #clock {
     width: 70vw;
     height: 70vw;
   }
+  
+  .images {
+    height: 80px;
+    margin-top: 0px;
+  }
+  
+  .image {
+  height: 70px;
+  width: 70px;
+  }
+  
+  /* slider tooltip */
+  
+  span.rs-tooltip.rs-tooltip-text.edit {
+  left: 60px;
+  font-size: 2.4vh;
+}
   
 }
