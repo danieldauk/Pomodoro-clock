@@ -109,7 +109,7 @@ $(function() {
     workValueTemp = workValue*60;
     
     //starting progressCircle animation
-    timeForProgCircle = workValueTemp*200;
+    timeForProgCircle = workValueTemp*1000;
     
     progressCircle.animate(1, {
       duration: timeForProgCircle
@@ -138,7 +138,7 @@ $(function() {
 
      }
      startWork(workValueTemp);
-   }, 200);
+   }, 1000);
   }
   
   //converting mins to mins and secs
@@ -167,7 +167,7 @@ $(function() {
     //resetting the break time 
     breakValueTemp = breakValue*60;
     //starting progressCircle animation
-    var timeForProgCircle = breakValueTemp*200;
+    var timeForProgCircle = breakValueTemp*1000;
     progressCircle.animate(1, {
       duration: timeForProgCircle
     });
@@ -192,7 +192,7 @@ $(function() {
        
      }
      startBreak(breakValueTemp);
-   }, 200);
+   }, 1000);
   }
     
   function startBreak(value) {
