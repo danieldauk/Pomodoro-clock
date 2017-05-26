@@ -196,12 +196,14 @@ span.rs-tooltip.rs-tooltip-text.hover{
 #alarmBtn1 {
   animation: twirl 0.3s linear forwards reverse;
   position: absolute;
+  width: 100%;
 }
 
 #alarmBtn2 {
   animation: twirl 0.3s linear forwards;
   position: absolute;
   color: rgba(218,114,126,1);
+  width: 100%;
 }
 
 .rotate1 {
