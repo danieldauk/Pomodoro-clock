@@ -184,7 +184,7 @@ span.rs-tooltip.rs-tooltip-text.hover{
   cursor: pointer;
   align-items: center;
   font-size: 4vh;
-  width: 4vw;
+  width: auto;
   height: 6vh;
   position: relative;
   
@@ -244,6 +244,10 @@ span.rs-tooltip.rs-tooltip-text.hover{
   #clock {
     width: 60vw;
     height: 60vw;
+  }
+  
+  .alarm {
+    width: 10vw;
   }
   
   .images {
