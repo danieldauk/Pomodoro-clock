@@ -184,7 +184,7 @@ span.rs-tooltip.rs-tooltip-text.hover{
   cursor: pointer;
   align-items: center;
   font-size: 4vh;
-  width: 100%;
+  width: auto;
   height: 6vh;
   position: relative;
   
