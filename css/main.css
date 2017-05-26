@@ -183,7 +183,10 @@ span.rs-tooltip.rs-tooltip-text.hover{
   color: rgba(255,188,103,1);
   cursor: pointer;
   align-items: center;
-    font-size: 4vh;
+  font-size: 4vh;
+  width: 100%;
+  height: 6vh;
+  
 }
 
 
@@ -231,9 +234,14 @@ span.rs-tooltip.rs-tooltip-text.hover{
 
 
 @media (max-width: 400px) {
+  button {
+    height: 7vh;
+    width: 15vh;
+  }
+  
   #clock {
-    width: 70vw;
-    height: 70vw;
+    width: 60vw;
+    height: 60vw;
   }
   
   .images {
