@@ -200,6 +200,7 @@ span.rs-tooltip.rs-tooltip-text.hover{
   animation: twirl 0.3s linear forwards;
   position: absolute;
   color: rgba(218,114,126,1);
+  font-size: 3.5vh;
 }
 
 .rotate1 {
