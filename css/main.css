@@ -184,7 +184,7 @@ span.rs-tooltip.rs-tooltip-text.hover{
   cursor: pointer;
   align-items: center;
   font-size: 4vh;
-  width: auto;
+  width: 4vw;
   height: 6vh;
   position: relative;
   
@@ -194,13 +194,13 @@ span.rs-tooltip.rs-tooltip-text.hover{
 /* animation for alarm */
 #alarmBtn1 {
   animation: twirl 0.3s linear forwards reverse;
+  position: absolute;
 }
 
 #alarmBtn2 {
   animation: twirl 0.3s linear forwards;
   position: absolute;
   color: rgba(218,114,126,1);
-  font-size: 3vh;
 }
 
 .rotate1 {
