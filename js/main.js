@@ -8,7 +8,7 @@ var timeMins = 0;
 var timeSecs = 0;
 var timeForProgCircle = 0;
 var startReset = 0;
-var alarmOnOff = 0;
+var alarmOnOff = 1;
 
 
 $(function() {
@@ -232,10 +232,13 @@ $(function() {
   
   
 // creating audio and switching alarm
-  var alarm = new Audio('audio/bell2.mp3');
+  var alarm;
   $(".alarm").on("click", function() {
-    $("#alarmBtn1").toggleClass("rotate1");
-    $("#alarmBtn2").toggleClass("rotate2");
+    alarm = new Audio();
+    alarm.play();
+    alarm = new Audio('audio/bell2.mp3');
+    $("#alarmBtn1").toggleClass("rotate2");
+    $("#alarmBtn2").toggleClass("rotate1");
     
   if(alarmOnOff == 0) {
     alarmOnOff = 1;
